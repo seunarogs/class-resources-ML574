@@ -5,9 +5,9 @@ RUN . /etc/os-release && if [ "${VERSION_CODENAME}" != "bookworm" ]; then exit 1
 
 # Temporary: Upgrade python packages due to mentioned CVEs
 # They are installed by the base image (continuumio/anaconda3) which does not have the patch.
-COPY ./apply_security_patches.sh /tmp/apply_security_patches.sh
-RUN chmod +x /tmp/apply_security_patches.sh
-RUN /tmp/apply_security_patches.sh
+#COPY ./apply_security_patches.sh /tmp/apply_security_patches.sh
+#RUN chmod +x /tmp/apply_security_patches.sh
+#RUN /tmp/apply_security_patches.sh
 
 # Reset and copy updated files with updated privs to keep image size down
 FROM mcr.microsoft.com/devcontainers/base:1-bookworm
